@@ -1,10 +1,14 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Mood } from '../models/mood.model';
+import { Store } from '@ngrx/store';
+import { selectSelectedMood } from '../store/mood/mood.selectors';
+import { selectMood, selectRandomMood } from '../store/mood/mood.actions';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MoodService {
+  private store = inject(Store);
   private readonly moods: Mood[] = [
     {
       name: 'Happy',
@@ -38,7 +42,23 @@ export class MoodService {
     },
   ];
 
+  selectedMood = this.store.selectSignal(selectSelectedMood);
+  randomMood = this.store.selectSignal(selectRandomMood);
+
   getAllMoods() {
     return this.moods;
+  }
+
+  selectMood(mood: Mood) {
+    this.store.dispatch(selectMood({ mood }));
+  }
+
+  selectRandomMood() {
+    this.store.dispatch(selectRandomMood({ mood: this.getRandomObject<Mood>(this.moods) }));
+  }
+
+  private getRandomObject<T>(arr: T[]): T {
+    const randomIndex = Math.floor(Math.random() * arr.length);
+    return arr[randomIndex];
   }
 }
