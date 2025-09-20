@@ -8,6 +8,14 @@
     @for(mood of allMoods; track mood.name){
     <div
       class="mood-card bg-[#222222] rounded-lg py-12 px-12 text-center cursor-pointer transition-all duration-300 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] border-2 border-transparent relative overflow-hidden hover:scale-105 hover:bg-[#2a2a2a] hover:border-[rgba(229,9,20,0.3)] hover:shadow-[0_8px_25px_rgba(0,0,0,0.4)]"
+      [ngClass]="{
+        'bg-[#222222] border-transparent hover:scale-105 hover:bg-[#2a2a2a] hover:border-[rgba(229,9,20,0.3)] hover:shadow-[0_8px_25px_rgba(0,0,0,0.4)]':
+          selectedMood()?.name !== mood.name,
+
+        'border-[#e50914] [background:linear-gradient(135deg,#e50914,#b20710)] scale-105 shadow-[0_8px_25px_rgba(229,9,20,0.4)]':
+          selectedMood()?.name === mood.name
+      }"
+      (click)="onSelectMood(mood)"
     >
       <span class="text-[3rem] mb-6 block [filter:drop-shadow(0_0_10px_rgba(255,255,255,0.2))]">{{
         mood.emoji
