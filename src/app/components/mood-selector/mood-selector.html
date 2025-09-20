@@ -5,59 +5,16 @@
     What’s Your Mood Today?
   </h2>
   <div class="grid grid-cols-3 gap-6">
+    @for(mood of allMoods; track mood.name){
     <div
       class="mood-card bg-[#222222] rounded-lg py-12 px-12 text-center cursor-pointer transition-all duration-300 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] border-2 border-transparent relative overflow-hidden hover:scale-105 hover:bg-[#2a2a2a] hover:border-[rgba(229,9,20,0.3)] hover:shadow-[0_8px_25px_rgba(0,0,0,0.4)]"
     >
-      <span class="text-[3rem] mb-6 block [filter:drop-shadow(0_0_10px_rgba(255,255,255,0.2))]"
-        >😊</span
-      >
-      <div class="text-[1.3rem] font-semibold mb-3">Happy</div>
+      <span class="text-[3rem] mb-6 block [filter:drop-shadow(0_0_10px_rgba(255,255,255,0.2))]">{{
+        mood.emoji
+      }}</span>
+      <div class="text-[1.3rem] font-semibold mb-3">{{ mood.name }}</div>
     </div>
-    <div
-      class="mood-card bg-[#222222] rounded-lg py-12 px-12 text-center cursor-pointer transition-all duration-300 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] border-2 border-transparent relative overflow-hidden hover:scale-105 hover:bg-[#2a2a2a] hover:border-[rgba(229,9,20,0.3)] hover:shadow-[0_8px_25px_rgba(0,0,0,0.4)]"
-      data-mood="adventurous"
-    >
-      <span class="text-[3rem] mb-6 block [filter:drop-shadow(0_0_10px_rgba(255,255,255,0.2))]"
-        >😢</span
-      >
-      <div class="text-[1.3rem] font-semibold mb-3">Sad</div>
-    </div>
-    <div
-      class="mood-card bg-[#222222] rounded-lg py-12 px-12 text-center cursor-pointer transition-all duration-300 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] border-2 border-transparent relative overflow-hidden hover:scale-105 hover:bg-[#2a2a2a] hover:border-[rgba(229,9,20,0.3)] hover:shadow-[0_8px_25px_rgba(0,0,0,0.4)]"
-      data-mood="thoughtful"
-    >
-      <span class="text-[3rem] mb-6 block [filter:drop-shadow(0_0_10px_rgba(255,255,255,0.2))]"
-        >🤩</span
-      >
-      <div class="text-[1.3rem] font-semibold mb-3">Excited</div>
-    </div>
-    <div
-      class="mood-card bg-[#222222] rounded-lg py-12 px-12 text-center cursor-pointer transition-all duration-300 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] border-2 border-transparent relative overflow-hidden hover:scale-105 hover:bg-[#2a2a2a] hover:border-[rgba(229,9,20,0.3)] hover:shadow-[0_8px_25px_rgba(0,0,0,0.4)]"
-      data-mood="scared"
-    >
-      <span class="text-[3rem] mb-6 block [filter:drop-shadow(0_0_10px_rgba(255,255,255,0.2))]"
-        >🧐</span
-      >
-      <div class="text-[1.3rem] font-semibold mb-3">Curious</div>
-    </div>
-    <div
-      class="mood-card bg-[#222222] rounded-lg py-12 px-12 text-center cursor-pointer transition-all duration-300 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] border-2 border-transparent relative overflow-hidden hover:scale-105 hover:bg-[#2a2a2a] hover:border-[rgba(229,9,20,0.3)] hover:shadow-[0_8px_25px_rgba(0,0,0,0.4)]"
-      data-mood="nostalgic"
-    >
-      <span class="text-[3rem] mb-6 block [filter:drop-shadow(0_0_10px_rgba(255,255,255,0.2))]"
-        >😤</span
-      >
-      <div class="text-[1.3rem] font-semibold mb-3">Angry</div>
-    </div>
-    <div
-      class="mood-card bg-[#222222] rounded-lg py-12 px-12 text-center cursor-pointer transition-all duration-300 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] border-2 border-transparent relative overflow-hidden hover:scale-105 hover:bg-[#2a2a2a] hover:border-[rgba(229,9,20,0.3)] hover:shadow-[0_8px_25px_rgba(0,0,0,0.4)]"
-      data-mood="curious"
-    >
-      <span class="text-[3rem] mb-6 block [filter:drop-shadow(0_0_10px_rgba(255,255,255,0.2))]"
-        >🥰</span
-      >
-      <div class="text-[1.3rem] font-semibold mb-3">Romantic</div>
-    </div>
+    }
   </div>
   <div class="flex mt-10 items-center justify-center gap-6">
     <div
