@@ -9,7 +9,7 @@ import { selectMood, selectRandomMood } from '../store/mood/mood.actions';
 })
 export class MoodService {
   private store = inject(Store);
-  private readonly moods: Mood[] = [
+  readonly moods: Mood[] = [
     {
       name: 'Happy',
       emoji: '😀',
@@ -42,12 +42,8 @@ export class MoodService {
     },
   ];
 
-  selectedMood = this.store.selectSignal(selectSelectedMood);
-  randomMood = this.store.selectSignal(selectRandomMood);
-
-  getAllMoods() {
-    return this.moods;
-  }
+  readonly selectedMood = this.store.selectSignal(selectSelectedMood);
+  readonly randomMood = this.store.selectSignal(selectRandomMood);
 
   selectMood(mood: Mood) {
     this.store.dispatch(selectMood({ mood }));

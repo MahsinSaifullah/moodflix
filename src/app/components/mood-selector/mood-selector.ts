@@ -11,7 +11,7 @@ import { Mood } from '../../models/mood.model';
 })
 export class MoodSelector {
   private moodService = inject(MoodService);
-  allMoods = this.moodService.getAllMoods();
+  allMoods = this.moodService.moods;
   selectedMood = this.moodService.selectedMood;
 
   onSelectMood(mood: Mood) {
