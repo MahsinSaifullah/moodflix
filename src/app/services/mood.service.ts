@@ -2,7 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { Mood } from '../models/mood.model';
 import { Store } from '@ngrx/store';
 import { selectSelectedMood } from '../store/mood/mood.selectors';
-import { selectMood, selectRandomMood } from '../store/mood/mood.actions';
+import { resetMood, selectMood, selectRandomMood } from '../store/mood/mood.actions';
 
 @Injectable({
   providedIn: 'root',
@@ -51,6 +51,10 @@ export class MoodService {
 
   selectRandomMood() {
     this.store.dispatch(selectRandomMood({ mood: this.getRandomObject<Mood>(this.moods) }));
+  }
+
+  resetMood() {
+    this.store.dispatch(resetMood());
   }
 
   private getRandomObject<T>(arr: T[]): T {

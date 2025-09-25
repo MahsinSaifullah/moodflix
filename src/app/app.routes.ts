@@ -2,6 +2,13 @@ import { Routes } from '@angular/router';
 import { Home } from './components/home/home';
 import { MyList } from './components/my-list/my-list';
 import { Popular } from './components/popular/popular';
+import { Recommendations } from './components/recommendations/recommendations';
+
+export enum AppRoutes {
+  MyList = 'my-list',
+  Popular = 'popular',
+  Recommendations = 'recommendations',
+}
 
 export const routes: Routes = [
   {
@@ -9,11 +16,15 @@ export const routes: Routes = [
     component: Home,
   },
   {
-    path: 'my-list',
+    path: AppRoutes.MyList,
     component: MyList,
   },
   {
-    path: 'popular',
+    path: AppRoutes.Popular,
     component: Popular,
+  },
+  {
+    path: `${AppRoutes.Recommendations}/:mood`,
+    component: Recommendations,
   },
 ];
