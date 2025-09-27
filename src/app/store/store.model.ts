@@ -9,6 +9,8 @@ export interface MoodState {
 export interface RecommendationState {
   moviesByMood: Movie[] | null;
   popularMovies: Movie[] | null;
+  isFetchingMovies: boolean;
+  hasErrorOccurred: boolean;
 }
 
 export interface StoreState {

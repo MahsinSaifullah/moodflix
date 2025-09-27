@@ -11,13 +11,14 @@ import { provideStore } from '@ngrx/store';
 import { moodReducer } from './store/mood/mood.reducer';
 import { StoreState } from './store/store.model';
 import { recommendationReducer } from './store/recommendation/recommendation.reducer';
+import { fetchMoviesByMoodEffect } from './store/recommendation/recommendation.effects';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
-    provideEffects(),
+    provideEffects({ fetchMoviesByMoodEffect }),
     provideStore<StoreState>({
       mood: moodReducer,
       recommendation: recommendationReducer,
