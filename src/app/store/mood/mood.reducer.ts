@@ -1,11 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
-import { Mood } from '../../models/mood.model';
 import { resetMood, selectMood, selectRandomMood } from './mood.actions';
-
-export interface MoodState {
-  selectedMood: Mood | null;
-  randomMood: Mood | null;
-}
+import { MoodState } from '../store.model';
 
 export const initialMoodState: MoodState = {
   selectedMood: null,

@@ -9,6 +9,8 @@ import { routes } from './app.routes';
 import { provideEffects } from '@ngrx/effects';
 import { provideStore } from '@ngrx/store';
 import { moodReducer } from './store/mood/mood.reducer';
+import { StoreState } from './store/store.model';
+import { recommendationReducer } from './store/recommendation/recommendation.reducer';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -16,8 +18,9 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideEffects(),
-    provideStore({
+    provideStore<StoreState>({
       mood: moodReducer,
+      recommendation: recommendationReducer,
     }),
   ],
 };

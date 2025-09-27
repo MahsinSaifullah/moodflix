@@ -43,8 +43,7 @@ export class MovieApiService {
     });
   }
 
-  getPosterUrl(posterPath: string | null, size: string = 'w500'): string | null {
-    if (!posterPath) return null;
+  getPosterUrl(posterPath: string, size: string = 'w500'): string | null {
     return `https://image.tmdb.org/t/p/${size}${posterPath}`;
   }
 }

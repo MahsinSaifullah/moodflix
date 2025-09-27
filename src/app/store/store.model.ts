@@ -1,8 +1,17 @@
 import { Mood } from '../models/mood.model';
+import { Movie } from '../models/movie.model';
+
+export interface MoodState {
+  selectedMood: Mood | null;
+  randomMood: Mood | null;
+}
+
+export interface RecommendationState {
+  moviesByMood: Movie[] | null;
+  popularMovies: Movie[] | null;
+}
 
 export interface StoreState {
-  mood: {
-    selectedMood: Mood | null;
-    randomMood: Mood | null;
-  };
+  mood: MoodState;
+  recommendation: RecommendationState;
 }
