@@ -11,6 +11,8 @@ export class Recommendations {
   private destroyRef = inject(DestroyRef);
   private moodService = inject(MoodService);
 
+  selectedMood = this.moodService.selectedMood;
+
   constructor() {
     this.destroyRef.onDestroy(() => {
       this.moodService.resetMood();

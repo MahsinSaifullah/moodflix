@@ -14,6 +14,7 @@ import { AppRoutes } from '../../app.routes';
 export class MoodSelector {
   private moodService = inject(MoodService);
   private router = inject(Router);
+
   allMoods = this.moodService.moods;
   selectedMood = this.moodService.selectedMood;
 
@@ -22,7 +23,6 @@ export class MoodSelector {
   }
 
   onGetRecommendations() {
-    console.log('---selectedMood:', this.selectedMood());
     if (!this.selectedMood()) {
       return;
     }
