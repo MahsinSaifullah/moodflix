@@ -12,3 +12,13 @@ export const selectPopularMovies = createSelector(
   selectRecommendation,
   (state) => state.popularMovies
 );
+
+export const selectIsFetchingMovies = createSelector(
+  selectRecommendation,
+  (state) => state.isFetchingMovies
+);
+
+export const selectHasErrorOccurred = createSelector(
+  selectRecommendation,
+  (state) => state.hasErrorOccurred
+);

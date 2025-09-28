@@ -1,0 +1,14 @@
+{
+  "/tmdbApi": {
+    "target": "https://api.themoviedb.org/3",
+    "secure": true,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/tmdbApi": ""
+    },
+    "headers": {
+      "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1NDZhNDI1M2Y3NGM2MWE3NjEwNGJiMzNkNzIxMzhiOCIsIm5iZiI6MTY2MTk3NDkxMy40OTUwMDAxLCJzdWIiOiI2MzBmYjk4MWQ3YTcwYTAwN2UxYmE5ODYiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.J2ny-I48Ea2SnqN7SETJklWAjicA0T_ljJaCBFbFGBM",
+      "accept": "application/json"
+    }
+  }
+}

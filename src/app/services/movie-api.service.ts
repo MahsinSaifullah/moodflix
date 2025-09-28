@@ -14,22 +14,14 @@ interface MovieApiRequest {
 })
 export class MovieApiService {
   private http = inject(HttpClient);
-  private readonly baseUrl = 'https://api.themoviedb.org/3';
-  private readonly apiToken =
-    'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1NDZhNDI1M2Y3NGM2MWE3NjEwNGJiMzNkNzIxMzhiOCIsIm5iZiI6MTY2MTk3NDkxMy40OTUwMDAxLCJzdWIiOiI2MzBmYjk4MWQ3YTcwYTAwN2UxYmE5ODYiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.J2ny-I48Ea2SnqN7SETJklWAjicA0T_ljJaCBFbFGBM';
-
-  private readonly defaultHeaders = new HttpHeaders({
-    accept: 'application/json',
-    Autherization: `Bearer ${this.apiToken}`,
-  });
+  private readonly proxyBaseUrl = '/tmdbApi';
 
   fetchMoviesByGenre(genreIds: number[], page = 1) {
     const params = new HttpParams()
       .set('with_genres', genreIds.join(','))
       .set('page', page.toString());
 
-    return this.http.get<MovieApiRequest>(`${this.baseUrl}/discover/movie`, {
-      headers: this.defaultHeaders,
+    return this.http.get<MovieApiRequest>(`${this.proxyBaseUrl}/discover/movie`, {
       params,
     });
   }
@@ -37,8 +29,7 @@ export class MovieApiService {
   fetchPopularMovies(page = 1) {
     const params = new HttpParams().set('page', page.toString());
 
-    return this.http.get<MovieApiRequest>(`${this.baseUrl}/movie/popular`, {
-      headers: this.defaultHeaders,
+    return this.http.get<MovieApiRequest>(`${this.proxyBaseUrl}/movie/popular`, {
       params,
     });
   }

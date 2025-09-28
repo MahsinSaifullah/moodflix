@@ -10,7 +10,10 @@ export const setMoviesByMood = createAction(
   '[Recommendation] Set Movies By Mood',
   props<{ movies: Movie[] }>()
 );
-export const fetchPopularMovies = createAction('[Recommendation] Fetch Popular Movies');
+export const fetchPopularMovies = createAction(
+  '[Recommendation] Fetch Popular Movies',
+  props<{ page: number }>()
+);
 export const setPopularMovies = createAction(
   '[Recommendation] Set Popular Movies',
   props<{ movies: Movie[] }>()

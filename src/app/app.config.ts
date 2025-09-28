@@ -12,6 +12,7 @@ import { moodReducer } from './store/mood/mood.reducer';
 import { StoreState } from './store/store.model';
 import { recommendationReducer } from './store/recommendation/recommendation.reducer';
 import { fetchMoviesByMoodEffect } from './store/recommendation/recommendation.effects';
+import { provideHttpClient } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -23,5 +24,6 @@ export const appConfig: ApplicationConfig = {
       mood: moodReducer,
       recommendation: recommendationReducer,
     }),
+    provideHttpClient(),
   ],
 };

@@ -4,6 +4,7 @@ import { NgClass } from '@angular/common';
 import { Mood } from '../../models/mood.model';
 import { Router } from '@angular/router';
 import { AppRoutes } from '../../app.routes';
+import { RecommendationService } from '../../services/recommendation.service';
 
 @Component({
   selector: 'app-mood-selector',
@@ -12,8 +13,9 @@ import { AppRoutes } from '../../app.routes';
   styleUrl: './mood-selector.css',
 })
 export class MoodSelector {
-  private moodService = inject(MoodService);
   private router = inject(Router);
+  private moodService = inject(MoodService);
+  private recommendationService = inject(RecommendationService);
 
   allMoods = this.moodService.moods;
   selectedMood = this.moodService.selectedMood;
@@ -27,6 +29,7 @@ export class MoodSelector {
       return;
     }
 
+    this.recommendationService.getRecommendationForMood();
     this.router.navigate([AppRoutes.Recommendations, this.selectedMood()?.name.toLowerCase()]);
   }
 }
